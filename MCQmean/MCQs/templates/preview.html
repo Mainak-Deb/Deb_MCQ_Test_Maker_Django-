@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+
+ul {
+  background: #3399ff;
+  padding: 20px;
+}
+
+
+ul li {
+  background: #cce5ff;
+  margin: 5px;
+}
+</style>
+</head>
+<body>
+{% for i in qs %}
+    <ul>
+    <p>{{i.qs}}</p><p>point:{{i.point}}</p>
+    <li>Ans:{{i.ans}}</li>
+    <li>{{i.op.0}}</li>
+    <li>{{i.op.1}}</li>
+    <li>{{i.op.2}}</li>
+
+    </ul>
+{% endfor %}      
+</body>
+</html>

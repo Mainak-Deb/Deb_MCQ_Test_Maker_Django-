@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.button4 {border-radius: 12px;}
+</style>
+<body>
+    <h1>{{id}}</h1>
+    <h2>{{subject}}</h2>
+    <h2>{{topic}}</h2>
+    <h2>{{time}}</h2>
+    <h2>{{fm}}</h2>
+    <form action="/addqs/" method="post"> {% csrf_token %}
+        <input
+                type="hidden"
+                name="name"
+                id="name"
+                value="{{request.user}}"
+        />
+        <input
+                type="hidden"
+                name="id"
+                id="id"
+                value="{{id}}"
+        />   
+    <input class="button button4" type="submit" value="Add question">
+  </form>
+  <form action="/preview/" method="post"> {% csrf_token %}
+        <input
+                type="hidden"
+                name="name"
+                id="name"
+                value="{{request.user}}"
+        />
+        <input
+                type="hidden"
+                name="id"
+                id="id"
+                value="{{id}}"
+        />   
+    <input class="button button4" type="submit" value="Preview">
+  </form>
+    <form action="/marks/" method="post"> {% csrf_token %}
+        <input
+                type="hidden"
+                name="name"
+                id="name"
+                value="{{request.user}}"
+        />
+        <input
+                type="hidden"
+                name="id"
+                id="id"
+                value="{{id}}"
+        />   
+    <input class="button button4" type="submit" value="Marks">
+  </form>
+  
+</body>
+</html>

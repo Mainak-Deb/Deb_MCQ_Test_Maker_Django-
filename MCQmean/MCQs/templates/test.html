@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h1>Answer the questions</h1>
+<form action="/evaluate/" method="post"> {% csrf_token %}
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" placeholder="Your name name..">
+
+    <label for="email">Email</label>
+    <input type="text" id="email" name="email" placeholder="Your email..">
+
+{% for i in tq %}
+
+<p>{{i.qs}}:</p><p>point:{{i.point}}</p>
+  <input type="radio" id="{{i.op.0}}" name="{{i.id}}" value="{{i.op.0}}">
+  <label for="{{i.op.0}}">{{i.op.0}}</label><br>
+
+  <input type="radio" id="{{i.op.1}}" name="{{i.id}}" value="{{i.op.1}}">
+  <label for="{{i.op.1}}">{{i.op.1}}</label><br>
+
+  <input type="radio" id="{{i.op.2}}" name="{{i.id}}" value="{{i.op.2}}">
+  <label for="{{i.op.2}}">{{i.op.2}}</label><br>
+
+  <input type="radio" id="{{i.op.3}}" name="{{i.id}}" value="{{i.op.3}}">
+  <label for="{{i.op.3}}">{{i.op.3}}</label><br>
+  <br>  
+
+	
+{% endfor %} 
+<input type="submit" value="submit">
+
+</form>
+</body>
+</html>

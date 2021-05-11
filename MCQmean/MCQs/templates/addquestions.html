@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    }
+
+    input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    }
+
+    input[type=submit]:hover {
+    background-color: #45a049;
+    }
+
+    div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    }
+    </style>
+</head>
+<body>
+    {{id}}
+       
+<h3>Using CSS to style an HTML Form</h3>
+
+<div>
+  <form action="/added/" method="post"> {% csrf_token %}
+  <input
+              type="hidden"
+              name="eid"
+              id="eid"
+              value="{{id}}"
+ />
+    <label for="question">question</label>
+    <input type="text" id="question" name="question" placeholder="Type question here..">
+
+    <label for="Point">Point</label>
+    <input type="text" id="Point" name="Point" placeholder="Point..">
+
+    <label for="Answer">Answer</label>
+    <input type="text" id="Answer" name="Answer" placeholder="Time limit..">
+
+    <label for="Option2">Option 2</label>
+    <input type="text" id="Option2" name="Option2" placeholder="Option2.">
+    <label for="Option3">Option 3</label>
+    <input type="text" id="Option3" name="Option3" placeholder="Option3..">
+    <label for="Option4">Option 4</label>
+    <input type="text" id="Option4" name="Option4" placeholder="Option4..">
+
+  
+    <input type="submit" value="Save and add another">
+  </form>
+  <form action="/edit/" method="post"> {% csrf_token %}
+        <input
+                type="hidden"
+                name="name"
+                id="name"
+                value="{{request.user}}"
+        />
+        <input
+                type="hidden"
+                name="id"
+                id="id"
+                value="{{id}}"
+        />   
+    <input class="button button4" type="submit" value="Exit">
+  </form>
+</div>
+</body>
+</html>
